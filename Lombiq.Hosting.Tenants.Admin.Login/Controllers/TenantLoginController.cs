@@ -52,7 +52,7 @@ public sealed class TenantLoginController : Controller
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
 
-        if (_shellSettings.Name.EqualsOrdinalIgnoreCase(ShellSettings.DefaultShellName))
+        if (_shellSettings.Name.Equals(ShellSettings.DefaultShellName, StringComparison.OrdinalIgnoreCase))
         {
             return NotFound();
         }

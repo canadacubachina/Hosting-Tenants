@@ -50,7 +50,7 @@ public sealed class TenantsIndexFilter : IAsyncResultFilter
         var shellSettings = _shellHost.GetSettings(context.RouteData.Values["Id"].ToString());
         if (shellSettings != null &&
             shellSettings.State == TenantState.Running &&
-            !shellSettings.Name.EqualsOrdinalIgnoreCase(ShellSettings.DefaultShellName))
+            !shellSettings.Name.Equals(ShellSettings.DefaultShellName, StringComparison.OrdinalIgnoreCase))
         {
             await _layoutAccessor.AddShapeToZoneAsync(
                 "Content",
