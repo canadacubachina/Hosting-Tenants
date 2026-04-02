@@ -1,8 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-  </PropertyGroup>
 
   <PropertyGroup>
     <Title>Lombiq Hosting - Tenants Idle Tenant Management for Orchard Core - UI Test Extensions</Title>

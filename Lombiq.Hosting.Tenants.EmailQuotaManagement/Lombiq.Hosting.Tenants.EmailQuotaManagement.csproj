@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
+  <!-- <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
-  </PropertyGroup>
+  </PropertyGroup> -->
 
   <PropertyGroup>
     <Title>Lombiq Hosting - Tenants Email Quota Management for Orchard Core</Title>
