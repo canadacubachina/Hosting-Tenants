@@ -17,8 +17,6 @@ using static Lombiq.Hosting.Tenants.MediaStorageManagement.Constants.FeatureName
     IsAlwaysEnabled = true,
     Dependencies =
     [
-        "OrchardCore.Media",
-        "OrchardCore.DisplayManagement",
-        "OrchardCore.ResourceManagement",
+        "OrchardCore.Media"
     ]
 )]
