@@ -10,13 +10,13 @@
       asp-area="@Module"
       method="post"
       class="no-multisubmit">
-    <div class="mb-3" id="FieldWrapper">
-        <label asp-for="Json" class="form-label">@T["Shell Settings editor"]</label>
-        <div>
+    <div class="ocat-field-wrapper" id="FieldWrapper">
+        <label asp-for="Json" class="ocat-label">@T["Shell Settings editor"]</label>
+        <div class="ocat-end">
             <span class="hint">
                 @T["JSON key-value pairs should be set here, in the same way you'd configure the tenant-specific section in an appsettings.json file."]
             </span>
-            <div id="@Html.IdFor(model => model.Json)_editor" asp-for="Settings" style="min-height: 400px;" class="form-control"></div>
+            <div id="@Html.IdFor(model => model.Json)_editor" asp-for="Settings" style="min-height: 400px;" class="ocat-form-control"></div>
             <textarea asp-for="Json" hidden>@Html.Raw(Model.Json)</textarea>
         </div>
     </div>
