@@ -74,7 +74,7 @@ public sealed class TenantLoginController : Controller
         if (adminUser == null)
         {
             await _notifier.ErrorAsync(H["No user with administrator role in this tenant."]);
-            return Redirect("~/");
+            return Redirect(Url.Content("~/"));
         }
 
         await _userSignInManager.SignInAsync(adminUser, isPersistent: false);
