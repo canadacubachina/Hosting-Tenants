@@ -38,10 +38,11 @@
     <PackageReference Include="OrchardCore.ResourceManagement" Version="2.1.0" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="2.1.0" />-->
     <!--<PackageReference Include="System.Linq.Async" />-->
+    <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Helpful-Libraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
+    <ProjectReference Include="..\..\src\GuangCore\GuangCore.TopRef\GuangCore.TopRef.csproj" />
   </ItemGroup>
 
   <!--<ItemGroup Condition="'$(NuGetBuild)' != 'true'">
