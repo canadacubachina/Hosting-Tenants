@@ -1,10 +1,10 @@
-<Project>
+<Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
     <!--<TargetFramework>net8.0</TargetFramework>-->
   </PropertyGroup>
 
-  <Import Condition="'$(NuGetBuild)' != 'true'" Project="../../../Utilities/Lombiq.MSBuild.Targets/Lombiq.MSBuild.OrchardCore.Module.Sdk/Sdk/Import.props" />
-  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.props" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" />
+  <!--<Import Condition="'$(NuGetBuild)' != 'true'" Project="../../../Utilities/Lombiq.MSBuild.Targets/Lombiq.MSBuild.OrchardCore.Module.Sdk/Sdk/Import.props" />
+  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.props" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" />-->
 
   <PropertyGroup>
     <Title>Lombiq Hosting - Tenants Management for Orchard Core</Title>
@@ -15,18 +15,18 @@
     <PackageProjectUrl>https://github.com/Lombiq/Hosting-Tenants/blob/dev/Lombiq.Hosting.Tenants.Management/Readme.md</PackageProjectUrl>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <PackageReference Include="OrchardCore.Tenants" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="Scrutor" Version="7.0.0" />
   </ItemGroup>
 
   <Import Condition="'$(NuGetBuild)' != 'true'" Project="../../../Utilities/Lombiq.MSBuild.Targets/Lombiq.MSBuild.OrchardCore.Module.Sdk/Sdk/Import.targets" />
-  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.targets" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" />
-
+  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.targets" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" />-->
+  <ItemGroup>
     <PackageReference Include="OrchardCore.Module.Targets" />
 
     <PackageReference Include="Scrutor" />
-    <!-- <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" /> -->
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\GuangCore\GuangCore.TopRef\GuangCore.TopRef.csproj" />
      <ProjectReference Include="..\..\Helpful-Libraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
