@@ -1,4 +1,5 @@
 using OrchardCore.Modules.Manifest;
+using OrchardCore.Users;
 using static Lombiq.Hosting.Tenants.Maintenance.Constants.FeatureNames;
 
 [assembly: Module(
@@ -12,8 +13,7 @@ using static Lombiq.Hosting.Tenants.Maintenance.Constants.FeatureNames;
     Id = Maintenance,
     Name = "Lombiq Hosting - Tenants Maintenance",
     Description = "Provides maintenance operations for tenants.",
-    Category = "Hosting",
-    Dependencies = ["OrchardCore.Tenants"]
+    Category = "Hosting"
 )]
 
 [assembly: Feature(
@@ -40,8 +40,7 @@ using static Lombiq.Hosting.Tenants.Maintenance.Constants.FeatureNames;
     Description = "Adds the Administrator role to users with the configured role (e.g., when the production database " +
         "is copied to staging).",
     Category = "Maintenance",
-    DefaultTenantOnly = true,
-    Dependencies = [Maintenance]
+    Dependencies = [Maintenance, UserConstants.Features.Users]
 )]
 
 [assembly: Feature(
@@ -49,7 +48,6 @@ using static Lombiq.Hosting.Tenants.Maintenance.Constants.FeatureNames;
     Name = "Lombiq Hosting - Tenants Maintenance Remove Users",
     Description = "Removes users with the configured email domain.",
     Category = "Maintenance",
-    DefaultTenantOnly = true,
     Dependencies = [Maintenance]
 )]
 
@@ -58,16 +56,15 @@ using static Lombiq.Hosting.Tenants.Maintenance.Constants.FeatureNames;
     Name = "Lombiq Hosting - Tenants Maintenance Change User Sensitive Content",
     Description = "Replaces the users' username, email and password with realistic but random values.",
     Category = "Maintenance",
-    DefaultTenantOnly = true,
     Dependencies = [Maintenance]
 )]
 
 [assembly: Feature(
     Id = DeleteOrRebuildElasticsearchIndices,
-    Name = "Lombiq Hosting - Tenants Maintenance Delete Elasticsearch Indexes",
-    Description = "Deletes Elasticsearch indexes.",
+    Name = "Lombiq Hosting - Tenants Maintenance Delete or Rebuild Elasticsearch Indexes",
+    Description = "Deletes or rebuilds Elasticsearch indexes.",
     Category = "Maintenance",
-    Dependencies = [Maintenance, "OrchardCore.Search.Elasticsearch"]
+    Dependencies = [Maintenance, "OrchardCore.Elasticsearch"]
 )]
 
 [assembly: Feature(
@@ -79,9 +76,31 @@ using static Lombiq.Hosting.Tenants.Maintenance.Constants.FeatureNames;
 )]
 
 [assembly: Feature(
+    Id = PurgeMediaCache,
+    Name = "Lombiq Hosting - Tenants Maintenance Purge Media Cache",
+    Description = "Purges the local cache for remote media files to avoid stale assets during production-staging swaps.",
+    Category = "Maintenance",
+    Dependencies = [Maintenance, "OrchardCore.Media"]
+)]
+
+[assembly: Feature(
     Id = UpdateEnabledFeatures,
     Name = "Lombiq Hosting - Tenants Maintenance Update Enabled Features",
     Description = "Updates the enabled features of tenants.",
     Category = "Maintenance",
     Dependencies = []
+)]
+
+[assembly: Feature(
+    Id = StaggeredTenantWakeUp,
+    Name = "Lombiq Hosting - Tenants Maintenance Staggered Tenant Wake-up",
+    Description = "Creates a scope for all running tenants and this way all migrations and maintenances are triggered to run.",
+    Category = "Maintenance",
+    DefaultTenantOnly = true,
+    Dependencies = [
+        Maintenance,
+        "OrchardCore.Tenants",
+        "OrchardCore.ContentFields",
+        "OrchardCore.Contents",
+    ]
 )]
