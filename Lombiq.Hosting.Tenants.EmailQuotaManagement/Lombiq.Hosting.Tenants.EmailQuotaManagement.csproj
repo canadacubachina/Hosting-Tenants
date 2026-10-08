@@ -1,11 +1,9 @@
-<Project>
+<Project Sdk="Microsoft.NET.Sdk.Razor">
   <!-- <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup> -->
-
-  <Import Condition="'$(NuGetBuild)' != 'true'" Project="../../../Utilities/Lombiq.MSBuild.Targets/Lombiq.MSBuild.OrchardCore.Module.Sdk/Sdk/Import.props" />
-  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.props" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" />
-
+  <!-- <Import Condition="'$(NuGetBuild)' != 'true'" Project="../../../Utilities/Lombiq.MSBuild.Targets/Lombiq.MSBuild.OrchardCore.Module.Sdk/Sdk/Import.props" />
+  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.props" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" /> -->
   <PropertyGroup>
     <Title>Lombiq Hosting - Tenants Email Quota Management for Orchard Core</Title>
     <CopyrightYear>2023</CopyrightYear>
@@ -13,23 +11,31 @@
     <PackageTags>OrchardCore;Lombiq;AspNetCore;Multitenancy;SaaS</PackageTags>
     <RepositoryUrl>https://github.com/Lombiq/Hosting-Tenants</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Lombiq/Hosting-Tenants/blob/dev/Lombiq.Hosting.Tenants.EmailQuotaManagement/Readme.md</PackageProjectUrl>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <ProjectGuid>{067F3D1A-CF17-5964-644D-EA6E9528AB52}</ProjectGuid>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Email" Version="$(OrchardCoreVersion)" />
+    <!-- <PackageReference Include="OrchardCore.Email" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="OrchardCore.Email.Azure" Version="$(OrchardCoreVersion)" />
-    <PackageReference Include="OrchardCore.Email.Smtp" Version="$(OrchardCoreVersion)" />
-    <PackageReference Include="Scrutor" Version="7.0.0" />
+    <PackageReference Include="OrchardCore.Email.Smtp" Version="$(OrchardCoreVersion)" /> -->
+    <PackageReference Include="Scrutor" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(NuGetBuild)' != 'true'">
+  <!-- <ItemGroup>
     <ProjectReference Include="..\..\Lombiq.HelpfulExtensions\Lombiq.HelpfulExtensions\Lombiq.HelpfulExtensions.csproj" />
+  </ItemGroup> -->
+  <ItemGroup>
+    <PackageReference Include="Lombiq.HelpfulExtensions" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(NuGetBuild)' == 'true'">
-    <PackageReference Include="Lombiq.HelpfulExtensions" Version="12.0.1-alpha.0.osoe-1317" />
+  <!-- <Import Condition="'$(NuGetBuild)' != 'true'" Project="../../../Utilities/Lombiq.MSBuild.Targets/Lombiq.MSBuild.OrchardCore.Module.Sdk/Sdk/Import.targets" />
+  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.targets" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" /> -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\GuangCore\GuangCore.TopRef\GuangCore.TopRef.csproj" />
   </ItemGroup>
-
-  <Import Condition="'$(NuGetBuild)' != 'true'" Project="../../../Utilities/Lombiq.MSBuild.Targets/Lombiq.MSBuild.OrchardCore.Module.Sdk/Sdk/Import.targets" />
-  <Import Condition="'$(NuGetBuild)' == 'true'" Project="Sdk.targets" Sdk="Lombiq.MSBuild.OrchardCore.Module.Sdk" Version="2.1.1-alpha.5.osoe-1317" />
 </Project>
