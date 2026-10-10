@@ -33,4 +33,7 @@
 
   <!--<ItemGroup Condition="'$(NuGetBuild)' != 'true'">
   </ItemGroup>-->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 </Project>

@@ -27,4 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\GuangCore\GuangCore.TopRef\GuangCore.TopRef.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 </Project>
